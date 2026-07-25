@@ -4,18 +4,18 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=ExampleKernel by osm0sis @ xda-developers
+kernel.string=NeverSettle Kernel
 do.devicecheck=1
 do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=maguro
-device.name2=toro
-device.name3=toroplus
-device.name4=tuna
+device.name1=avicii
+device.name2=Nord
+device.name3=AC2001
+device.name4=AC2003
 device.name5=
-supported.versions=
+supported.versions=16
 supported.patchlevels=
 supported.vendorpatchlevels=
 '; } # end properties
@@ -29,8 +29,8 @@ set_perm_recursive 0 0 750 750 $RAMDISK/init* $RAMDISK/sbin;
 } # end attributes
 
 # boot shell variables
-BLOCK=/dev/block/platform/omap/omap_hsmmc.0/by-name/boot;
-IS_SLOT_DEVICE=0;
+BLOCK=/dev/block/bootdevice/by-name/boot;
+IS_SLOT_DEVICE=1;
 RAMDISK_COMPRESSION=auto;
 PATCH_VBMETA_FLAG=auto;
 

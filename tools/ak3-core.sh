@@ -409,8 +409,8 @@ flash_boot() {
           for fdt in dtb extra kernel_dtb recovery_dtbo; do
             [ -f $fdt ] && magiskboot dtb $fdt patch; # remove dtb verity/avb
           done;
-        elif [ -d /data/data/me.weishu.kernelsu ] && [ "$(file_getprop $AKHOME/anykernel.sh do.modules)" == 1 ] && [ "$(file_getprop $AKHOME/anykernel.sh do.systemless)" == 1 ]; then
-          ui_print " " "KernelSU detected! Setting up for kernel helper module...";
+        elif [ -d /data/data/com.rifsxd.ksunext ] && [ "$(file_getprop $AKHOME/anykernel.sh do.modules)" == 1 ] && [ "$(file_getprop $AKHOME/anykernel.sh do.systemless)" == 1 ]; then
+          ui_print " " "KernelSU-Next detected! Setting up for kernel helper module...";
           comp=$(magiskboot decompress kernel 2>&1 | grep -vE 'raw|zimage' | sed -n 's;.*\[\(.*\)\];\1;p');
           (magiskboot split $kernel || magiskboot decompress $kernel kernel) >&2;
           if [ $? != 0 -a "$comp" ] && $comp --help 2>/dev/null; then
@@ -423,7 +423,7 @@ flash_boot() {
             grep -E -m1 'Linux version.*#' stringstmp > $AKHOME/vertmp;
             [ -d $RAMDISK/overlay.d ] && ui_print " " "Warning: overlay.d detected in ramdisk but not currently supported by KernelSU!";
           else
-            ui_print " " "Warning: No KernelSU support detected in kernel!";
+            ui_print " " "Warning: No KernelSU-Next support detected in kernel!";
           fi;
           rm -f stringstmp;
           if [ "$comp" ]; then
